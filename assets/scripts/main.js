@@ -23,19 +23,16 @@ function formHandler(e) {
       '<img src="https://media.giphy.com/media/PjaTjG8ct5cNOtjjZg/giphy.gif" style="display: block; margin: 1.5rem auto 1rem; max-width: 300px; max-height: 300px; border-radius: 10px;">';
   } else if (currentPrice > costPrice) {
     let profit = (currentPrice - costPrice) * quant;
-    let profitPer = (((currentPrice - costPrice) * 100) / costPrice).toFixed(2);
+    const profitPerCent = (profit/ (costPrice * quant)) * 100
 
-    output.innerHTML = `Congratulations!🥳 You gained ${profitPer}%. Your total profit is ₹${profit}`;
+    output.innerHTML = `Congratulations!🥳 You gained ${profitPerCent.toFixed(2)}%. Your total profit is ₹${profit}`;
 
     gif.innerHTML =
       '<img src="https://media.giphy.com/media/67ThRZlYBvibtdF9JH/giphy.gif" style="display: block; margin: 1.5rem auto 1rem; max-width: 300px; max-height: 300px; border-radius: 10px;">';
   } else {
     let loss = (costPrice - currentPrice) * quant;
-    let lossPer = (((costPrice - currentPrice) * 100) / currentPrice).toFixed(
-      2
-    );
-
-    output.innerHTML = `Oh No!😦 You lost ${lossPer}%. Your total loss is ₹${loss}`;
+    const lossPercent = (loss/ (costPrice * quant)) * 100
+    output.innerHTML = `Oh No!😦 You lost ${lossPercent.toFixed(2)}%. Your total loss is ₹${loss}`;
 
     gif.innerHTML =
       '<img src="https://media.giphy.com/media/W0c3xcZ3F1d0EYYb0f/giphy.gif" style="display: block; margin: 1.5rem auto 1rem; max-width: 300px; max-height: 300px; border-radius: 10px;">';
